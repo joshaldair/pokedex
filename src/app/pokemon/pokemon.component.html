@@ -1,14 +1,44 @@
-<main class="flex">
-    <article class="card">
-      
-        <div class="card-body">
-        
-            <h1 class="card-body-title">
-                Victor charst
-                <span>26</span>
-            </h1>
-            
+<div class="container py-5">
+
+
+    <div class="row pb-5 mb-4">
+
+
+        <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
+            <!-- Card-->
+            <div class="card shadow-sm border-0 rounded">
+                <div class="card-body p-0"><img [src]="pokemon.alternativeImg" alt="" class="w-100 card-img-top">
+                    <div class="p-4">
+                        <h3 class="text-center mb-0">{{pokemon.name}}</h3>
+                        <p class="text-center small text-muted">{{pokemon.type}}</p>
+                        <p class="text-center small text-muted">{{pokemon.ability}}</p>
+                        <div class="p-4 d-flex justify-content-center">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <h5 class="font-weight-bold mb-0 d-block">{{pokemon.weight}}</h5><small
+                                        class="text-muted"><i
+                                            class="fa fa-weight-scale mr-1 text-primary"></i>Weight</small>
+                                </li>
+                                <li class="list-inline-item">
+                                    <h5 class="font-weight-bold mb-0 d-block">{{pokemon.height}}</h5><small
+                                        class="text-muted"><i
+                                            class="fa fa-ruler-vertical mr-1 text-primary"></i>Height</small>
+                                </li>
+                               
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-    </article>
-</main>
+        <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
+            <app-evolution></app-evolution>
+        </div>
+
+    </div>
+
+
+
+
+</div>

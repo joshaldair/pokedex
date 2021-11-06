@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
@@ -11,7 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { EvolutionComponent } from './evolution/evolution.component';
-import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
+import { RegisterComponent } from './register/register.component';
+ 
  
 
 @NgModule({
@@ -21,7 +22,7 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
     DashboardComponent,
     PokemonComponent,
     EvolutionComponent,
-    PokemonDetailComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,10 +31,11 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule 
  
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

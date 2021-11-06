@@ -9,9 +9,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'dashboard', component: DashboardComponent,
-    children: [{ path: 'pokemon', component: PokemonComponent },]
+    //children: [{ path: 'pokemon', component: PokemonComponent },]
   },
-
+  { path: 'pokemon', component: PokemonComponent },
 ];
 
 @NgModule({

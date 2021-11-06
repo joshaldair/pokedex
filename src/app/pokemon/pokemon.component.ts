@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Pokemon } from '../service/pokemon.model';
+import { PokemonService } from '../service/pokemon.service';
+
 
 @Component({
   selector: 'app-pokemon',
@@ -7,9 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonComponent implements OnInit {
 
-  constructor() { }
+  pokemon: Pokemon;
+
+  constructor(public activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
+    const retrievedObject = localStorage.getItem('pokemon');
+    this.pokemon = JSON.parse(retrievedObject);
   }
 
 }

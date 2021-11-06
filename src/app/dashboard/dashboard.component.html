@@ -1,12 +1,21 @@
-<nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" routerLink='/dashboard'> Welcome </a>
-    <ul>
+<div class="container py-5">
+    <!-- For Demo Purpose-->
+    <header class="text-center mb-5">
+        <h1 class="display-4 font-weight-bold">Aqui va el filter</h1>
 
+    </header>
 
-    </ul>
-    <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Log Out</button>
-</nav>
+    <div class="row pb-5 mb-4" *ngIf="data">
+        <div class="col-lg-3 col-md-6 p-2 mb-lg-0" *ngFor="let item of data">
+            <!-- Card-->
+            <div class="card rounded shadow-sm border-0" (click)="addPokemon(item)">
+                <div class="card-body p-4"><img [src]="item.image" alt="" class="img-fluid d-block mx-auto mb-3">
+                    <h5>   {{item.name}} </h5>
+                    <p class="small text-muted font-italic">{{item.type}}</p>
 
-<div class="jumbotron jumbtron-fluid">
-    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
