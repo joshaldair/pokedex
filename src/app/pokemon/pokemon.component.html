@@ -1,10 +1,12 @@
 <div class="container py-5">
 
+    <header class="p-2">
+        <button class="btn btn-success">Go Back</button>
+    </header>
+    <div class="row pb-5 mb-4" *ngIf="pokemon">
 
-    <div class="row pb-5 mb-4">
 
-
-        <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
+        <div class="col-lg-8 col-md-8 mb-4 mb-lg-0">
             <!-- Card-->
             <div class="card shadow-sm border-0 rounded">
                 <div class="card-body p-0"><img [src]="pokemon.alternativeImg" alt="" class="w-100 card-img-top">
@@ -24,7 +26,7 @@
                                         class="text-muted"><i
                                             class="fa fa-ruler-vertical mr-1 text-primary"></i>Height</small>
                                 </li>
-                               
+
 
                             </ul>
                         </div>
@@ -32,8 +34,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-6 mb-4 mb-lg-0">
-            <app-evolution></app-evolution>
+        <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+            <app-evolution [id]="pokemon.id" (pokemon)="pokemonDetail($event)"></app-evolution>
         </div>
 
     </div>

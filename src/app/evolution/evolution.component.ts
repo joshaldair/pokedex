@@ -1,5 +1,5 @@
 import { Pokemon } from './../service/pokemon.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PokemonService } from '../service/pokemon.service';
 import { Output, EventEmitter } from '@angular/core';
 
@@ -10,13 +10,13 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class EvolutionComponent implements OnInit {
 
+  data: any[] = [];
   @Output() pokemon = new EventEmitter<Pokemon>();
+  @Input() id : number;
   constructor(readonly service: PokemonService) { }
 
   ngOnInit(): void {
-    this.service.getPokemonsSpecie(3).subscribe(res => {
-      //this.helo(res)
-      console.log(res)
+    this.service.getPokemonsSpecie(this.id).subscribe(res => {
       this.service.getPokemonByUrl(res.evolution_chain.url).subscribe(data => {
         this.evolutionArray(data)
       })
@@ -43,7 +43,36 @@ export class EvolutionComponent implements OnInit {
 
       evoData = evoData['evolves_to'][0];
     } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
-    console.log(evoChain)
+    this.getPokemons(evoChain);
   }
 
+
+  getPokemons(data) {
+    let pokemonData: Pokemon;
+    data.forEach(element => {
+      this.service.getPokemons(element.species_name).subscribe(res => {
+        let type: any[] = [];
+        res.types.forEach((element: any) => {
+          type.push(element.type.name);
+        });
+
+        let ability: any[] = [];
+        res.abilities.forEach((element: any) => {
+          ability.push(element.ability.name);
+        });
+
+        pokemonData = {
+          alternativeImg: res.sprites.other.dream_world.front_default,
+          image: res.sprites.front_default,
+          name: res.name,
+          type: type.join(' - '),
+          height: res.height,
+          weight: res.weight,
+          id: res.id,
+          ability: ability.join(' - ')
+        };
+        this.data.push(pokemonData);
+      })
+    });
+  }
 }

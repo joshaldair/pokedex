@@ -1,1 +1,20 @@
-<p>evolution works!</p>
+<div class="container py-5" >
+
+    <!-- First Row [Prosucts]-->
+    <h2 class="font-weight-bold mb-2">Evolution Chain</h2>
+  
+    <div class="row pb-5 mb-4">
+        <div class="col-md-12 p-2 mb-lg-0" *ngFor="let item of data">
+            <!-- Card-->
+
+            <div class="card rounded shadow-sm border-0" (click)="pokemonDetail(item)">
+                <div class="card-body p-4"><img [src]="item.image" alt="" class="img-fluid d-block mx-auto mb-3">
+                    <h5> {{item.name}} </h5>
+                    <p class="small text-muted font-italic">{{item.type}}</p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

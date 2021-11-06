@@ -9,11 +9,12 @@ import { environment } from 'src/environments/environment';
 export class PokemonService {
 
   baseUrl: string = 'https://pokeapi.co/api/v2';
+  
 
   constructor(private http: HttpClient) { }
 
   getPokemonList(offset: number) {
-    return this.http.get(`${this.baseUrl}pokemon?limit=50&offset=${offset}`);
+    return this.http.get(`${this.baseUrl}/pokemon?limit=50&offset=${offset}`);
   }
 
   getPokemonByUrl(url: string) {

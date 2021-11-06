@@ -13,6 +13,6 @@ export class AppComponent {
     private router: Router) { }
   onLogout() {
 
-    this.router.navigate(['/user/login']);
+    this.router.navigate(['/login']);
   }
 }
