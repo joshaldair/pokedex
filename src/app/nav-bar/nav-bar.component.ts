@@ -8,10 +8,10 @@ import { LoginService } from '../service/login.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(readonly service: LoginService ) { }
+  constructor(readonly service: LoginService) { }
 
   ngOnInit(): void {
-    this.service.user = JSON.parse(localStorage.getItem('user')) 
+    this.service.user = JSON.parse(localStorage.getItem('user') || "[]")
   }
 
   onLogout() {

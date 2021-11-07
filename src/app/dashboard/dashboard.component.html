@@ -1,8 +1,8 @@
 <div class="container py-5">
     <!-- For Demo Purpose-->
     <header class="text-center mb-5">
-        <h1 class="display-4 font-weight-bold">Aqui va el filter</h1>
-
+        <h3 class="display-4 font-weight-bold">PokeDex</h3>
+        <input class="form-control" id="myInput" (keyup)="filtrar($event)" type="text" placeholder="Search..">
     </header>
 
     <div class="row pb-5 mb-4" *ngIf="data">

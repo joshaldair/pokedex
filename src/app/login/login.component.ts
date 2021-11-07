@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
 
   conectado() {
     const usuario = localStorage.getItem('user');
-    const obj = JSON.parse(usuario);
+    const obj = JSON.parse(usuario || "[]");
     if (obj?.login) {
       this.router.navigateByUrl('/dashboard');
     }

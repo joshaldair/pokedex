@@ -12,19 +12,22 @@ import { PokemonService } from '../service/pokemon.service';
 })
 export class DashboardComponent implements OnInit {
 
-  data: any[] = [];
+  data: Pokemon[] = [];
 
   constructor(private service: PokemonService,
-    private router: Router ) {
-     
-     }
+    private router: Router) {
+
+  }
 
   ngOnInit(): void {
+    this.getPokemonList();
+  }
+
+  getPokemonList() {
     this.service.getPokemonList(this.getRandomInt(1, 301)).subscribe((data: any) => {
       this.getPokemons(data);
 
     })
-
   }
 
   getPokemons(data) {
@@ -52,6 +55,7 @@ export class DashboardComponent implements OnInit {
           ability: ability.join(' - ')
         };
         this.data.push(pokemonData);
+        localStorage.setItem('pokedet', JSON.stringify(this.data));
       })
     });
   }
@@ -63,7 +67,17 @@ export class DashboardComponent implements OnInit {
   addPokemon(pokemonData: Pokemon) {
     localStorage.setItem('pokemon', JSON.stringify(pokemonData));
     this.router.navigateByUrl('/pokemon');
-    
+
+  }
+
+  filtrar(e) {
+    const pokeDex = localStorage.getItem('pokedet');
+    const obj = JSON.parse(pokeDex || "[]");
+    this.data = obj;
+
+    this.data = this.data.filter(function (element) {
+      return element.name.includes(e.target.value) || element.type.includes(e.target.value);
+    });
   }
 
 }

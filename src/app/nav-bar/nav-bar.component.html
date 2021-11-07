@@ -1,9 +1,11 @@
- 
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="service.user.login" >
+<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top " *ngIf="service.user?.login">
     <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Welcome {{service.user.name}}</a>
         <a class="nav-item nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
-       
+
     </div>
-    <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()" style="float: right;">Log Out</button>
+        <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()" >Log Out</button>
+
 </nav>
+ 

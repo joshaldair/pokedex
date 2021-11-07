@@ -17,8 +17,6 @@ export class RegisterComponent implements OnInit {
   submitted = false;
 
   constructor(private service: LoginService,
-    private router: Router,
-    private toastr: ToastrService,
     private formBuilder: FormBuilder) {
 
   }

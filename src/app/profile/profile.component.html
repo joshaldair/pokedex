@@ -1,1 +1,56 @@
-<p>profile works!</p>
+<!-- main app container -->
+<div class="card m-5">
+    <h5 class="card-header">My profile</h5>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Name</label>
+                    <input formControlName="name" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>Email</label>
+                    <input formControlName="email" readonly class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Password</label>
+                    <input type="password" formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.hasError('hasNumber')">Must have at least 1 number!</div>
+                        <div *ngIf="f.password.hasError('hasCapitalCase')">Must have at least 1 Capital letter!
+                        </div>
+                        <div *ngIf="f.password.hasError('hasSmallCase')">Must have at least 1 Small letter!
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>Confirm Password</label>
+                    <input type="password" formControlName="confirmPassword" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                        <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                        <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary mr-1">Update</button>
+
+            </div>
+        </form>
+    </div>
+</div>
