@@ -1,1 +1,66 @@
-<p>register works!</p>
+<div class="jumbtron-fluid">
+
+    <div class="wrapper">
+        <div class="wrapped-div">
+            <div class="tab-header">
+                <h2 routerLink='/login'>Sign in</h2>
+                <h2 routerLink='/register' routerLinkActive='active'>Sign up</h2>
+
+            </div>
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <form [formGroup]="form" class="mb-4" (ngSubmit)="register()">
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input class="form-control formulario" name="name" formControlName="name" required
+                                [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                <div *ngIf="f.name.errors.required">Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input class="form-control formulario" name="email" formControlName="email" required
+                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control formulario" name="Password"
+                                formControlName="password" required
+                                [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.hasError('hasNumber')">Must have at least 1 number!</div>
+                                <div *ngIf="f.password.hasError('hasCapitalCase')">Must have at least 1 Capital letter!
+                                </div>
+                                <div *ngIf="f.password.hasError('hasSmallCase')">Must have at least 1 Small letter!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control formulario" name="confirmPassword"
+                                formControlName="confirmPassword" required [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+                            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                <div *ngIf="f.confirmPassword.errors.required">Password is required</div>
+                                <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-8 offset-md-2">
+                                <button type="submit" class="btn btn-success btn-block">Register</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

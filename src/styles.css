@@ -17,7 +17,7 @@ input.formulario:focus{
 
 button[type=button].btn{
     border-radius: 20px;
-    background-color: #04c582;
+    /*background-color: #04c582;*/
     color: #fff;
 }
 
@@ -93,6 +93,7 @@ div.form-group.required>label:first-child:after{
  div.form-group label:first-child{
     text-transform: uppercase;
     font-size: 0.9rem;
+    color: aliceblue;
  }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

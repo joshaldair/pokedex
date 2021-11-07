@@ -1,33 +1,36 @@
-  
-<div class="jumbotron jumbtron-fluid">
- 
-    <div class="wrapper">
-        <div class="wrapped-div">
-          <div class="tab-header">
-            <h2 routerLink='/login' routerLinkActive='active'>Sign in</h2>
-    
-          </div>
-          <div class="row">
-            <div class="col-md-10 offset-md-1">
-                <img src="/assets/img/single_user.png" class="mx-auto d-block">
-                <form novalidate [formGroup]="form" class="mb-4"  >
-                  <div class="form-group">
-                    <label>User</label>
-                    <input class="form-control formulario"  name="email" formControlName="email" required>
-                  </div>
-                  <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control formulario"  name="Password" formControlName="password" required>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-8 offset-md-2">
-                      <button type="button" (click)="login()" class="btn btn-lg btn-block" [disabled]="form.invalid">Login</button>
-                    </div>
-                  </div>
-                </form>
+<div class="jumbtron-fluid">
+
+  <div class="wrapper">
+    <div class="wrapped-div">
+      <div class="tab-header">
+        <h2 routerLink='/login' routerLinkActive='active'>Sign in</h2>
+        <h2 routerLink='/register' >Sign up</h2>
+
+      </div>
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <img src="/assets/img/single_user.png" class="mx-auto d-block">
+          <form novalidate [formGroup]="form" class="mb-4">
+            <div class="form-group">
+              <label>User</label>
+              <input class="form-control formulario" name="email" formControlName="email" required>
             </div>
-          </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control formulario" name="Password" formControlName="password"
+                required>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8 offset-md-2">
+                <button type="button" (click)="login()" class="btn btn-success btn-block"
+                  [disabled]="form.invalid">Login</button>
+              </div>
+
+            </div>
+          </form>
         </div>
       </div>
-    
     </div>
+  </div>
+
+</div>
