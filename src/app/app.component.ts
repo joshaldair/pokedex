@@ -10,12 +10,7 @@ import { LoginService } from './login/service/login.service';
 export class AppComponent {
   title = 'pokedex';
 
-  constructor(readonly service: LoginService,
-    private router: Router) { service.user = JSON.parse(localStorage.getItem('user')) }
+  constructor() {}
 
-  onLogout() {
-    /*localStorage.removeItem('user');
-    this.router.navigate(['/login']);*/
-    this.service.logout();
-  }
+ 
 }

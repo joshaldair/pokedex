@@ -13,6 +13,8 @@ import { PokemonComponent } from './pokemon/pokemon.component';
 import { EvolutionComponent } from './evolution/evolution.component';
 import { RegisterComponent } from './register/register.component';
 import { CommonModule } from '@angular/common';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { CommonModule } from '@angular/common';
     DashboardComponent,
     PokemonComponent,
     EvolutionComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavBarComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,8 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    JwPaginationModule
 
   ],
   providers: [],

@@ -13,7 +13,6 @@ import { PokemonService } from '../service/pokemon.service';
 export class DashboardComponent implements OnInit {
 
   data: any[] = [];
-  
 
   constructor(private service: PokemonService,
     private router: Router ) {
