@@ -1,4 +1,4 @@
-export interface Login {
+export interface User {
     name: string;
     password: string;
     confirmPassword: string;

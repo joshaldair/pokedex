@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from './login/service/login.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,12 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'pokedex';
 
-  constructor(
-    private router: Router) { }
-  onLogout() {
+  constructor(readonly service: LoginService,
+    private router: Router) { service.user = JSON.parse(localStorage.getItem('user')) }
 
-    this.router.navigate(['/login']);
+  onLogout() {
+    /*localStorage.removeItem('user');
+    this.router.navigate(['/login']);*/
+    this.service.logout();
   }
 }

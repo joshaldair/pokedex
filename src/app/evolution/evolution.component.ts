@@ -1,4 +1,4 @@
-import { Pokemon } from './../service/pokemon.model';
+import { Pokemon } from '../model/pokemon.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { PokemonService } from '../service/pokemon.service';
 import { Output, EventEmitter } from '@angular/core';

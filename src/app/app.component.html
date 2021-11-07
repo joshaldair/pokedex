@@ -1,10 +1,11 @@
-<nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" routerLink='/dashboard'> Welcome </a>
-    <ul>
-
-
-    </ul>
-    <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Log Out</button>
+ 
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="service.user" >
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-item nav-link" routerLink="/user" routerLinkActive="active">Profile</a>
+       
+    </div>
+    <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()" style="float: right;">Log Out</button>
 </nav>
 <div class="jumbotron jumbtron-fluid">
     <router-outlet></router-outlet>

@@ -12,8 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { EvolutionComponent } from './evolution/evolution.component';
 import { RegisterComponent } from './register/register.component';
- 
- 
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -31,11 +31,12 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule 
- 
+    HttpClientModule,
+    CommonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
