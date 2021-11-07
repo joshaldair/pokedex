@@ -1,3 +1,4 @@
+import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,9 +13,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]
-    //children: [{ path: 'pokemon', component: PokemonComponent },]
   },
   { path: 'pokemon', component: PokemonComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

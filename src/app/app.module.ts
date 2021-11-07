@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { JwPaginationModule } from 'jw-angular-pagination';
     PokemonComponent,
     EvolutionComponent,
     RegisterComponent,
-    NavBarComponent
+    NavBarComponent,
+    ProfileComponent
     
   ],
   imports: [

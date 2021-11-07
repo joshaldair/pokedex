@@ -3,5 +3,6 @@ export interface User {
     password: string;
     confirmPassword: string;
     email: string;
+    login: boolean;
 
 }
